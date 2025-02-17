@@ -31,9 +31,7 @@ function displayWeather(data) {
         <p><strong>Latitude:</strong> ${data.coord.lat}</p>
         <p><strong>Longitude:</strong> ${data.coord.lon}</p>
         <p><strong>Feels like:</strong> ${data.main.feels_like}</p>
-        <p><strong>Pressure:</strong> ${data.main.pressure}</p>
-        <p><strong>Visibility:</strong> ${data.visibility}</p>
-        <p><strong>Cloud Cover:</strong> ${data.clouds.all}%</p>
+        
 
 
     `;
