@@ -1,39 +1,91 @@
-body{
-    font-family:Arial,sans-serif;
-    background-color: #f0f0f0;
-    background-image:url('images/weather1.jpg');
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-image: url('images/weather1.jpg');
     background-size: cover;
-    display:flex;
-    justify-content: center; 
+    background-position: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
     height: 100vh;
-    margin:0;
+    margin: 0;
 }
-.container{ 
-    background-color:cornsilk;
-    padding:20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    text-align: center;
 
+/* Weather App Container */
+.container {
+    background:transparent;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 350px;
+    width: 90%;
+    color: black;
 }
-input{
+
+/* Input Styling */
+input {
     padding: 10px;
-    margin-right:10px;
-    border:1px solid #ccc;
-    border-radius:4px;
+    width: calc(100% - 20px);
+    margin-bottom: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: center;
+    outline: none;
+    background:lightblue;
+    color: black;
 }
-button{
-    padding: 10px;
-    border:none;
-    background-color: #007BFF;
-    color:white;
-    border-radius:4px;
-    cursor:pointer;
+
+
+
+
+/* Button Styling */
+button {
+    padding: 10px 18px;
+    border: none;
+    background:blue;
+    color: white;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
 }
-button:hover{
-    background-color:#0056b3;
+
+button:hover {
+    background:darkblue;
 }
-#weatherResult{
-    margin-top:20px;
+
+/* Weather Result Styling */
+#weatherResult {
+    margin-top: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
+
+
+.social-icons {
+    position: fixed;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-icons a img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+
+
+
