@@ -1,14 +1,14 @@
 document.getElementById('weatherForm').addEventListener('submit', function (event) {
     event.preventDefault();
     const city = document.getElementById('cityInput').value;
-    weatherApp.get_weather(city);
+    weatherApp.getWeather(city);
 });
 
 class WeatherApp {
     #apiKey = '0eea81d2e69e0074896e72ebde3c02ac';
     #baseUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
-    async fetch_weather(city) {
+    async _fetchWeather(city) {
         const url = `${this.#baseUrl}?q=${city}&units=metric&appid=${this.#apiKey}`;
 
         try {
@@ -16,21 +16,25 @@ class WeatherApp {
             return response.data;
         } catch (error) {
             console.error('Error fetching weather', error.response ? error.response.data : error.message);
-            document.getElementById('weatherResult').innerText = 
-                `Error fetching weather: ${error.response ? error.response.data.message : error.message}. Please try again.`;
+            const weatherResult = document.getElementById('weatherResult');
+            weatherResult.innerHTML = `
+                <div class="error-message">
+                    ❌ Error fetching weather: ${error.response ? error.response.data.message : error.message}. Please try again.
+                </div>
+            `;
             return null;
         }
     }
 
-    async get_weather(city) {
-        const data = await this.fetch_weather(city);
+    async getWeather(city) {
+        const data = await this._fetchWeather(city);
         if (data) {
-            this.display_weather(data);
-            this.change_background(data.weather[0].description); 
+            this._displayWeather(data);
+            this._changeBackground(data.weather[0].description); 
         }
     }
 
-    display_weather(data) {
+    _displayWeather(data) {
         const weatherResult = document.getElementById('weatherResult');
 
         weatherResult.innerHTML = `
@@ -48,13 +52,13 @@ class WeatherApp {
         `;
     }
 
-    change_background(weather_condition) {
+    _changeBackground(weatherCondition) {
         let imageUrl = '';
 
         // (converting to lowercase & replacing spaces with dashes)
-        const formatted_condition = weather_condition.toLowerCase().replace(/\s/g, '-');
+        const formattedCondition = weatherCondition.toLowerCase().replace(/\s/g, '-');
 
-        switch (formatted_condition) {
+        switch (formattedCondition) {
             case 'clear-sky':
                 imageUrl = 'url("https://c1.wallpaperflare.com/preview/380/28/19/sky-blue-white-cloud-sunny-days.jpg")';
                 break;
@@ -76,13 +80,18 @@ class WeatherApp {
                 break;
 
             case 'broken-clouds':
-                imageUrl = 'url("https://c4.wallpaperflare.com/wallpaper/216/813/37/clouds-blue-sky-weather-wallpaper-preview.jpg")';
+                imageUrl = 'url("https://c8.alamy.com/comp/DYBCAJ/broken-cloud-cover-and-blue-sky-as-seen-from-a-plane-high-above-australia-DYBCAJ.jpg")';
+                break;
+
+            case 'smoke':
+                imageUrl ='url("https://c0.wallpaperflare.com/preview/460/41/132/nature-weather-outdoors-fog.jpg")';
                 break;
 
             case 'light-rain':
             case 'moderate-rain':
             case 'heavy-rain':
             case 'heavy-intensity-rain':
+            case 'light-intensity-drizzle':
                 imageUrl = 'url("https://c1.wallpaperflare.com/preview/17/491/685/rain-window-drop-glass.jpg")';
                 break;
 
