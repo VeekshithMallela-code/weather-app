@@ -7,18 +7,125 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Weather App</h1>
+    <div class="top-container">
+        <h1>Get Weather Details...</h1>
+        <h3>Please select one option below</h3>
         <form id="weatherForm">
-            <input type="text" id="cityInput" placeholder="Enter City Name" required>
-            <button type="submit">Get Weather</button>
+            <div class="search-container">
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="locationChoice" value="city" checked> City
+                    </label>
+                    <label>
+                        <input type="radio" name="locationChoice" value="country"> Country
+                    </label>
+                </div>
+                <div class="search-input-group">
+                    <label for="locationInput">Search:</label>
+                    <input type="text" id="locationInput" placeholder="Enter City or Country" required>
+                    <button type="submit">Get Weather</button>
+                </div>
+            </div>
         </form>
-
+    </div>
+    
+    <div class="content-container">
         <div id="weatherResult"></div>
     </div>
     
+    <div class="news-section">
+        <h2>Weather News</h2>
+        <div class="news-grid">
+            <!-- Feature News (larger card) -->
+            <div class="news-card feature-news">
+                <div class="news-image">
+                    <img src="https://img.freepik.com/premium-photo/heat-wave-extreme-sun-sky-background-hot-weather_941600-21541.jpg" alt="Heat wave continues across region">
+                </div>
+                <div class="news-content">
+                    <div class="news-source">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpabbAldmVvl2HAgOI6TAk4OzhWT2jSFzyQ&s" alt="Weather Channel Logo" class="source-icon">
+                        <span>Weather Channel</span>
+                    </div>
+                    <h3>Heat Wave Continues Across the Region: What You Need to Know</h3>
+                    <p class="news-excerpt">Record-breaking temperatures are expected to continue throughout the week as the heat wave intensifies. Health officials advise staying hydrated and limiting outdoor activities.</p>
+                    <span class="news-time">2 hours ago</span>
+                </div>
+            </div>
+            
+            <!-- Regular News Cards -->
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Cyclone_Catarina_from_the_ISS_on_March_26_2004.JPG/1200px-Cyclone_Catarina_from_the_ISS_on_March_26_2004.JPG" alt="Tropical storm forms in Atlantic">
+                </div>
+                <div class="news-content">
+                    <div class="news-source">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpabbAldmVvl2HAgOI6TAk4OzhWT2jSFzyQ&s" alt="AccuWeather Logo" class="source-icon">
+                        <span>AccuWeather</span>
+                    </div>
+                    <h3>Tropical Storm Forms in Atlantic Ocean</h3>
+                    <span class="news-time">5 hours ago</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://eg5c9vcv2j9.exactdn.com/wp-content/uploads/2024/03/What-Is-C-Band-Radar-332x500.jpg?lossy=1&ssl=1" alt="New weather radar system">
+                </div>
+                <div class="news-content">
+                    <div class="news-source">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpabbAldmVvl2HAgOI6TAk4OzhWT2jSFzyQ&s" alt="Meteorology Today Logo" class="source-icon">
+                        <span>Meteorology Today</span>
+                    </div>
+                    <h3>New Weather Radar System Deployed: Enhanced Forecast Accuracy Expected</h3>
+                    <span class="news-time">Yesterday</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://media.istockphoto.com/id/91821142/photo/pollen-like-snow.jpg?s=612x612&w=0&k=20&c=b-Dj4jUyjwT34_RDmUowFFp7TnBVB1MXPyA3T88lkXA=" alt="Spring pollen surge">
+                </div>
+                <div class="news-content">
+                    <div class="news-source">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpabbAldmVvl2HAgOI6TAk4OzhWT2jSFzyQ&s" alt="Health & Weather Logo" class="source-icon">
+                        <span>Health & Weather</span>
+                    </div>
+                    <h3>Spring Brings Pollen Surge: Tips for Allergy Sufferers</h3>
+                    <span class="news-time">2 days ago</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTK8IKXbzghNAWHukj-086NLhJ60gRKMIa_fQ&s" alt="Climate impact report">
+                </div>
+                <div class="news-content">
+                    <div class="news-source">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpabbAldmVvl2HAgOI6TAk4OzhWT2jSFzyQ&s" alt="Climate News Logo" class="source-icon">
+                        <span>Climate News</span>
+                    </div>
+                    <h3>New Report Shows Impact of Climate Change on Weather Patterns</h3>
+                    <span class="news-time">3 days ago</span>
+                </div>
+            </div>
+            
+            <div class="news-card">
+                <div class="news-image">
+                    <img src="https://media.istockphoto.com/id/868098786/photo/thermometer-on-snow-shows-low-temperatures-zero-low-temperatures-in-degrees-celsius-and.jpg?s=612x612&w=0&k=20&c=jOZH4RSlX29thO6GNlvTUlYKUo_DK4xVxvXUTK7Jw5s=" alt="Winter forecast">
+                </div>
+                <div class="news-content">
+                    <div class="news-source">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpabbAldmVvl2HAgOI6TAk4OzhWT2jSFzyQ&s" alt="Weather Network Logo" class="source-icon">
+                        <span>Weather Network</span>
+                    </div>
+                    <h3>Early Winter Forecast Predicts Above-Average Snowfall</h3>
+                    <span class="news-time">4 days ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
